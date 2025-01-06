@@ -16,7 +16,7 @@
 
 ### Weekly Course Schedule
 
-|   | Topics/Weekly Activities  | Labs Due Wednesdays 11:59pm, HW Due Fridays 11:59pm |
+|   | Topics/Weekly Activities  | Labs Due Wednesdays 11:59pm <br> HW Due Fridays 11:59pm |
 |---|---|---|
 |  **Week 1** <br> January 6 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides01)  <br> January 8 [lab]()  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 13 [lecture]() <br> January 15 [lab]() |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|

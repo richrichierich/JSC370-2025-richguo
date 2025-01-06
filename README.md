@@ -22,8 +22,8 @@
 |  **Week 2** <br> January 13 [lecture]() <br> January 15 [lab]() |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
 |  **Week 3** <br> January 20 [lecture]()  <br> January 22 [lab]() |  Exploratory Data Analysis   |**[HW1](), Lab 3**|
 |  **Week 4** <br> January 27 [lecture]() <br> January 29 [lab]() |  Data visualization |   **Lab 4**   |
-|  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 [advanced regression]() <br> [advanced regression solution]()| **[HW2](), Lab 5** |
-|  **Week 6** <br> February 10 [lecture]() [<br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **Lab 6**  |
+|  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 (gam)| **[HW2](), Lab 5** |
+|  **Week 6** <br> February 10 [lecture]() <br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **Lab 6**  |
 |  **Week 7** <br> February 17 | Reading Week  |   |
 |  **Week 8** <br> February 24 [lecture]() <br> February 26 [lab]()  | Text mining  |  **[HW3](), Lab 8** |
 |  **Week 9** <br> March 3 [lecture]() <br> March 5 [lab]()  |  High performance computing, cloud computing  | **[Midterm](), Lab 9**   |
@@ -95,40 +95,58 @@
 Many of these websites have API to download the data. We recommend you using APIs
 to get data.
 
-### Health and Biological data
+
+### Canadian Data
+
+- Canada [GIS Data](https://canadiangis.com/)
+- Canada [Census Data](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm)
+- University of Toronto Library [Geospatial Data](https://guides.library.utoronto.ca/c.php?g=250719&p=4976498)
+- Toronto [Open Data](https://open.toronto.ca/)
+- Toronto [Police Department](https://data.torontopolice.on.ca/pages/open-data)
+- British Columbia [Open Data](https://catalogue.data.gov.bc.ca/)
+- Ontario [Data Catalogue](https://data.ontario.ca/)
+- Public Health Ontario [Open Data](https://www.publichealthontario.ca/en/Data-and-Analysis/Using-Data/Open-Data)
+
+### Environmental Data
+
+- US Environmental Protection Agency [EPA](https://www.epa.gov/outdoor-air-quality-data)
+- Weather and Climate Data [NOAA](https://www.ncei.noaa.gov/)
+- North American Climate Model Data [NCAR](https://www.narccap.ucar.edu/)
+- Natural Resources Canada [Geospatial Data](https://natural-resources.canada.ca/science-and-data/science-and-research/geomatics/topographic-tools-and-data/10785)
+- US Coastal Data [Oceans](http://cdip.ucsd.edu/m/deployment/station_view/)
+- Great Lakes [Bathymetry](https://www.ncei.noaa.gov/products/great-lakes-bathymetry)
+- Energy Data [EIA](https://www.eia.gov/)
+
+
+### International Data
+
+- UN Food and Agriculture Organization [FAO]([https://data.apps.fao.org/map/catalog/srv/eng/catalog.search#/home)
+- UN [Geospatial Hub](https://geoservices.un.org/webapps/geohub/)
+- NASA [SEDAC](https://sedac.ciesin.columbia.edu/data/sets/browse)
+- NASA [EarthData](https://earthdata.nasa.gov/)
+
+### US Data
+
+- USA Data.gov [Geospatial Data](https://catalog.data.gov/dataset/?metadata_type=geospatial)
+- US Census Data [National Historical Geographic Information System (NHGIS)](https://www.nhgis.org/)
+- NYU [Geospatial Data Repository](https://geo.nyu.edu/)
+- Google [Earth Engine](https://developers.google.com/earth-engine/datasets/)
+- Google [Dataset Search](https://datasetsearch.research.google.com/)
+- FiveThirtyEight [Open Data](https://data.fivethirtyeight.com/)
+- World Bank [Open Data](https://data.worldbank.org/)
+- Los Angeles [City Data](https://data.lacity.org/)
+- Los Angeles [Crime Data](http://www.lapdonline.org/crime_mapping_and_compstat)
+
+### Health and Biological Data
 
 - NIH [Cancer Surveillance](https://seer.cancer.gov/)
 - World Health Organization [WHO data](https://www.who.int/gho/database/en/)
-- UniProt [data](https://www.uniprot.org/)
-- The Gene Ontology [Project](http://geneontology.org/)
 - US Center for Disease Control and Prevention [Data](https://data.cdc.gov/)
 - California Health and Human Services [Open Data Portal](https://data.chhs.ca.gov/)
-- Covid Data [CovidTracker](https://covidtracking.com/)
-
-### Academic Publications and related
-
-- Figshare data [repository](https://figshare.com/)
-- Zenodo data [repository](https://zenodo.org/)
-- Harvard [Dataverse](https://dataverse.harvard.edu/)
-- Elsevier [Developers API](https://dev.elsevier.com/)
-
-### Other data
-
-- Toronto [open data](https://open.toronto.ca/)
-- Toronto [Police Department](https://data.torontopolice.on.ca/pages/open-data)
-- British Columbia [open data](https://catalogue.data.gov.bc.ca/)
-- Ontario [Data Catalogue](https://data.ontario.ca/)
-- Los Angeles [city data](https://data.lacity.org/)
-- Los Angeles [crime data](http://www.lapdonline.org/crime_mapping_and_compstat)
-- Google [Earth Engine](https://developers.google.com/earth-engine/datasets/)
-- Google [Dataset Search](https://datasetsearch.research.google.com/)
-- FiveThirtyEight [open data](https://data.fivethirtyeight.com/)
-- World Bank [open data](https://data.worldbank.org/)
-- US Open Data Initiative [DATA.GOV](https://www.data.gov/)
-- US Census Data [National Historical Geographic Information System (NHGIS)](https://www.nhgis.org/)
-- Canada [Census Data](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm)
-
-
+- Canada Covid Data [CovidTracker](https://covid19tracker.ca/)
+- UniProt [Protein Data](https://www.uniprot.org/)
+- The Gene Ontology [Project](http://geneontology.org/)
+  
 ### Social Networks
 
 - Twitter [Developers API](https://developer.twitter.com/)
@@ -139,3 +157,9 @@ to get data.
 - Spotify [Developers API](https://developer.spotify.com)
 
 
+### Academic Publications and Related
+
+- Figshare data [Repository](https://figshare.com/)
+- Zenodo data [Repository](https://zenodo.org/)
+- Harvard [Dataverse](https://dataverse.harvard.edu/)
+- Elsevier [Developers API](https://dev.elsevier.com/)

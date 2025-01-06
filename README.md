@@ -30,7 +30,7 @@
 |  **Week 10** <br> March 10 [lecture]() <br> March 12 [lab]() |  ML 2 (trees, rf, xgboost)   | **Lab 10** |
 |  **Week 11** <br> March 17 [lecture]() <br> March 19 [lab11]()| <br> Interactive visualization and effective data communication I  |  **Lab 11**  |
 |  **Week 12** <br> March 23 [lecture]() <br> March 26 [lab12]() | Interactive visualization and effective data communication II  | **Lab 12**  |
-|  **Week 13** <br> March 31 lecture <br> April 2 |  Final Project Workshop |  **[HW4]()** |
+|  **Week 13** <br> March 31  <br> April 2 |  Final Project Workshop |  **[HW4]()** |
 |  **Week 15** <br> April 28| |  **[Final Project](), [HW5]()** |
 
 ### Grading Breakdown

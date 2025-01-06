@@ -16,9 +16,9 @@
 
 ### Weekly Course Schedule
 
-|   | Topics/Weekly Activities  | [Due Dates](https://q.utoronto.ca/courses/298698/assignments) <br> by 11:59 pm Fridays unless noted |
+|   | Topics/Weekly Activities  |  |
 |---|---|---|
-|  **Week 1** <br> January 6 [lecture]()  <br> January 8 [lab]()  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
+|  **Week 1** <br> January 6 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides01)  <br> January 8 [lab]()  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 13 [lecture]() <br> January 15 [lab]() |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
 |  **Week 3** <br> January 20 [lecture]()  <br> January 22 [lab]() |  Exploratory Data Analysis   |**[HW1](), Lab 3**|
 |  **Week 4** <br> January 27 [lecture]() <br> January 29 [lab]() |  Data visualization |   **Lab 4**   |

@@ -1,37 +1,37 @@
-## JSC370: Data Science II (Winter 2024), University of Toronto
+## JSC370: Data Science II (Winter 2025), University of Toronto
 
 <img src="assets/datascience.png" width="400">
 
 ### Where and When
 * Instructor: [Meredith Franklin](https://meredithfranklin.github.io)
   * Email: <meredith.franklin@utoronto.ca>, please put "JSC370" in the subject line.
-* Teaching Assistant: Jun Ni (Jenny) Du <junni.du@mail.utoronto.ca>
-* Location: ESB 142
-* Time: Mondays and Wednesdays, 1-3pm
+* Teaching Assistant: Evelyn Pan <evelyn.pan@mail.utoronto.ca>
+* Time: Mondays (Lecture) and Wednesdays (Lab), 1-3pm
+* Location: SF 2202 (Mondays), GB 302 (Wednesdays)
 * Office hours: By Appointment
 * Course Forum: Quercus
-* [Course syllabus](JSC370-Syllabus-2024.pdf)
-* [Lab materials](https://github.com/JSC370/JSC370-2024/tree/main/labs)
+* [Course syllabus](JSC370-Syllabus-2025.pdf)
+* [Lab materials](https://github.com/JSC370/JSC370-2025/tree/main/labs)
 
 
 ### Weekly Course Schedule
 
 |   | Topics/Weekly Activities  | [Due Dates](https://q.utoronto.ca/courses/298698/assignments) <br> by 11:59 pm Fridays unless noted |
 |---|---|---|
-|  **Week 1** <br> January 6 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-01-intro) [pdf](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-01.pdf) <br> January 8 [lab](https://jsc370.github.io/JSC370-2024/labs/lab01/lab01-hello-R.html)  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
-|  **Week 2** <br> January 13 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-02-git) [pdf](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-02.pdf)<br> January 15 [lab](https://github.com/JSC370/JSC370-2024/blob/main/labs/lab02/lab02-github.html) |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
-|  **Week 3** <br> January 20 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-03-eda) [pdf](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-03.pdf) <br> January 22 [lab](https://github.com/JSC370/JSC370-2024/blob/main/labs/lab03/) ([sample solution]())  |  Exploratory Data Analysis   |**Lab 3**|
-|  **Week 4** <br> January 27 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-04-viz) [pdf](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-04.pdf) <br> January 29 [lab](https://github.com/JSC370/JSC370-2024/blob/main/labs/lab04/) ([sample solution]()) |  Data visualization |   **[HW1](https://jsc370.github.io/JSC370-2024/homework/hw1_2024.pdf), Lab 4**   |
-|  **Week 5** <br> February 3 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-05-wrangling) [pdf](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-05.pdf) <br> February 5 [lab](https://github.com/JSC370/JSC370-2024/blob/main/labs/lab05/) ([sample solution]()) | Data cleaning and wrangling <br> ML 1 [advanced regression]() <br> [advanced regression solution]()| **Lab 5** |
-|  **Week 6** <br> February 10 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-06-regscrapi) [pdf](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-06.pdf) <br> February 12 [lab](https://github.com/JSC370/JSC370-2024/blob/main/labs/lab06/) ([sample solution]()) | Regular Expressions, Data scraping, using APIs  |  **[HW2](https://rpubs.com/meredithfranklin/jsc370-homework-02), Lab 6**  |
+|  **Week 1** <br> January 6 [lecture]()  <br> January 8 [lab]()  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
+|  **Week 2** <br> January 13 [lecture]() <br> January 15 [lab]() |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
+|  **Week 3** <br> January 20 [lecture]()  <br> January 22 [lab]() |  Exploratory Data Analysis   |**[HW1](), Lab 3**|
+|  **Week 4** <br> January 27 [lecture]() <br> January 29 [lab]() |  Data visualization |   **Lab 4**   |
+|  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 [advanced regression]() <br> [advanced regression solution]()| **[HW2](), Lab 5** |
+|  **Week 6** <br> February 10 [lecture]() [<br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **Lab 6**  |
 |  **Week 7** <br> February 17 | Reading Week  |   |
-|  **Week 8** <br> February 24 [lecture](https://jsc370.github.io/JSC370-2024/slides/JSC370-slides-07.pdf) <br> February 26 [lab](https://github.com/JSC370/JSC370-2024/tree/main/labs/lab08) ([sample solution]()) | Text mining  |  **Lab 8** |
-|  **Week 9** <br> March 3 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides-09-hpc) <br> March 5 [lab](https://github.com/JSC370/JSC370-2024/tree/main/labs/lab09) ([sample solution]()) |  High performance computing, cloud computing  | **[Midterm](https://jsc370.github.io/JSC370-2024/homework/midterm.pdf), Lab 9**   |
-|  **Week 10** <br> March 10 [lecture](https://github.com/JSC370/JSC370-2024/blob/main/slides/JSC370-slides-10.pdf) <br> March 12 [lab]() ([sample solution](), [lab-b (optional)]() ([sample solution]()) |  ML 2 (trees, rf, xgboost)   | **Lab 10** |
-|  **Week 11** <br> March 17 [lecture](https://rpubs.com/meredithfranklin/jsc370-interactive-viz1) <br> March 19 [lab11]() ([sample solution]())| <br> Interactive visualization and effective data communication I  |  **[HW3](https://github.com/JSC370/JSC370-2024/blob/main/homework/hw3_2024.pdf), Lab 11**  |
-|  **Week 12** <br> March 23 [lecture](https://rpubs.com/meredithfranklin/jsc370-websites) <br> March 26 [lab12]() | Interactive visualization and effective data communication II  | **Lab 12**  |
-|  **Week 13** <br> March 31 lecture <br> April 2 |  Final Project Workshop |  **[HW4](https://rpubs.com/meredithfranklin/jsc370-hw4)** |
-|  **Week 15** <br> April 28| |  **[Final Project](https://github.com/JSC370/JSC370-2024/blob/main/homework/final.pdf), [HW5](https://github.com/JSC370/JSC370-2024/blob/main/homework/hw5-2024.pdf)** |
+|  **Week 8** <br> February 24 [lecture]() <br> February 26 [lab]()  | Text mining  |  **[HW3](), Lab 8** |
+|  **Week 9** <br> March 3 [lecture]() <br> March 5 [lab]()  |  High performance computing, cloud computing  | **[Midterm](), Lab 9**   |
+|  **Week 10** <br> March 10 [lecture]() <br> March 12 [lab]() |  ML 2 (trees, rf, xgboost)   | **Lab 10** |
+|  **Week 11** <br> March 17 [lecture]() <br> March 19 [lab11]()| <br> Interactive visualization and effective data communication I  |  **Lab 11**  |
+|  **Week 12** <br> March 23 [lecture]() <br> March 26 [lab12]() | Interactive visualization and effective data communication II  | **Lab 12**  |
+|  **Week 13** <br> March 31 lecture <br> April 2 |  Final Project Workshop |  **[HW4]()** |
+|  **Week 15** <br> April 28| |  **[Final Project](), [HW5]()** |
 
 ### Grading Breakdown
 

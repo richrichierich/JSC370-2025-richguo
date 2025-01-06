@@ -16,7 +16,7 @@
 
 ### Weekly Course Schedule
 
-|   | Topics/Weekly Activities  |  |
+|   | Topics/Weekly Activities  | Labs Due Wednesdays 11:59pm, HW Due Fridays 11:59pm |
 |---|---|---|
 |  **Week 1** <br> January 6 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides01)  <br> January 8 [lab]()  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 13 [lecture]() <br> January 15 [lab]() |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
@@ -28,10 +28,10 @@
 |  **Week 8** <br> February 24 [lecture]() <br> February 26 [lab]()  | Text mining  |  **[HW3](), Lab 8** |
 |  **Week 9** <br> March 3 [lecture]() <br> March 5 [lab]()  |  High performance computing, cloud computing  | **[Midterm](), Lab 9**   |
 |  **Week 10** <br> March 10 [lecture]() <br> March 12 [lab]() |  ML 2 (trees, rf, xgboost)   | **Lab 10** |
-|  **Week 11** <br> March 17 [lecture]() <br> March 19 [lab11]()| <br> Interactive visualization and effective data communication I  |  **Lab 11**  |
+|  **Week 11** <br> March 17 [lecture]() <br> March 19 [lab11]()| <br> Interactive visualization and effective data communication I  |  **[HW4](), Lab 11**  |
 |  **Week 12** <br> March 23 [lecture]() <br> March 26 [lab12]() | Interactive visualization and effective data communication II  | **Lab 12**  |
-|  **Week 13** <br> March 31  <br> April 2 |  Final Project Workshop |  **[HW4]()** |
-|  **Week 15** <br> April 28| |  **[Final Project](), [HW5]()** |
+|  **Week 13** <br> March 31  <br> April 2 |  Final Project Workshop |  **[HW5]()** |
+|  **Week 15** <br> April 28| |  **[Final Project]()** |
 
 ### Grading Breakdown
 

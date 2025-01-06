@@ -5,7 +5,7 @@
 ### Where and When
 * Instructor: [Meredith Franklin](https://meredithfranklin.github.io)
   * Email: <meredith.franklin@utoronto.ca>, please put "JSC370" in the subject line.
-* Teaching Assistant: Evelyn Pan <evelyn.pan@mail.utoronto.ca>
+* Teaching Assistant: Evelyn Pan <evelyn.pan@mail.utoronto.ca>; Sejal Bhalla <sejal@cs.toronto.edu>
 * Time: Mondays (Lecture) and Wednesdays (Lab), 1-3pm
 * Location: SF 2202 (Mondays), GB 302 (Wednesdays)
 * Office hours: By Appointment

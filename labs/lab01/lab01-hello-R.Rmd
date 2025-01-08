@@ -13,6 +13,12 @@ link-citations: yes
 - Appreciate the value of visualization in exploring the relationship between variables.
 - Start using R for building plots and calculating summary statistics.
 
+# Deliverables
+
+- Complete the data analysis exercises 1-5 by adding code chunks to the .Rmd
+- Make sure you can knit without error
+- Upload the .html and .Rmd to Quercus under Lab 1
+
 # Terminology
 
 We've already thrown around a few new terms, so let's define them before we proceed.

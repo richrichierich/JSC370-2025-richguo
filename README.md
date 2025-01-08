@@ -42,6 +42,7 @@
 |Final project|35|
 
 ### Readings
+
 * [R Programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/), 2022. Roger Peng. 
 * [R for Data Science (2e)](https://r4ds.hadley.nz/), 2023 Garrett Grolemund and Hadley Wickham.
 * [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/), 2020 Roger Peng.
@@ -54,12 +55,11 @@
 
 - [The Plain Person’s Guide to Plain Text Social Science](http://plain-text.co/): Why you should write data-based reports using plain-text tools.
 - [Markdown tutorial](https://www.markdowntutorial.com/): An interactive tutorial to practice using Markdown.
-- [Markdown cheatsheet](http://packetlife.net/media/library/16/Markdown.pdf): Useful one-page reminder of Markdown syntax.
+- [Markdown cheatsheet](https://rstudio.github.io/cheatsheets/html/rmarkdown.html): Useful one-page Markdown available on this page.
 
 ## Helpers and Templates
 
-- [RMarkdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) An overview of Markdown and RMarkdown conventions.
-- [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/) Other quick guides, including a more comprehensive RMarkdown reference and a information about using RStudio's IDE, and some of the main tools in R.
+- [RStudio Cheatsheets](https://posit.co/resources/cheatsheets/) Other quick guides, including a more comprehensive RMarkdown reference and a information about using RStudio's IDE, and some of the main tools in R.
 
 
 ## Guides

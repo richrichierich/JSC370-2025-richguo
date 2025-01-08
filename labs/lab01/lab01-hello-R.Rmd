@@ -1,7 +1,7 @@
 ---
 title: "Lab 01 - Hello R!"
 author: "Meredith Franklin"
-date: "`r Sys.Date()`"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
 output: 
   html_document:
 link-citations: yes
@@ -218,5 +218,5 @@ and a [general markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/) 
 
 ---
 
-This set of lab exercises have been adopted from [Mine Çetinkaya-Rundel](https://twitter.com/minebocek)'s class [Introduction to Data Science](https://github.com/ids-s1-19).
+This set of lab exercises have been adopted from [Mine Çetinkaya-Rundel](https://mine-cr.com/)'s class [Introduction to Data Science](https://sta199-s24.github.io/).
 

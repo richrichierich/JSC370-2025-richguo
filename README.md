@@ -7,7 +7,7 @@
   * Email: <meredith.franklin@utoronto.ca>, please put "JSC370" in the subject line.
 * Teaching Assistant: Evelyn Pan <evelyn.pan@mail.utoronto.ca>; Sejal Bhalla <sejal@cs.toronto.edu>
 * Time: Mondays (Lecture) and Wednesdays (Lab), 1-3pm
-* Location: SF 2202 (Mondays), GB 302 (Wednesdays)
+* Location: SF 2202 (Mondays), GB 304 (Wednesdays)
 * Office hours: By Appointment
 * Course Forum: Quercus
 * [Course syllabus](JSC370-Syllabus-2025.pdf)

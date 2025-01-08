@@ -10,7 +10,6 @@
 * Location: SF 2202 (Mondays), GB 304 (Wednesdays)
 * Office hours: By Appointment
 * Course Forum: Quercus
-* [Course syllabus](JSC370-Syllabus-2025.pdf)
 * [Lab materials](https://github.com/JSC370/JSC370-2025/tree/main/labs)
 
 
@@ -42,7 +41,13 @@
 |Midterm report|30|
 |Final project|35|
 
+### Readings
+* [R Programming for Data Science](https://bookdown.org/rdpeng/rprogdatascience/), 2022. Roger Peng. 
+* [R for Data Science (2e)](https://r4ds.hadley.nz/), 2023 Garrett Grolemund and Hadley Wickham.
+* [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/), 2020 Roger Peng.
+* [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/), 2020 Roger Peng, Sean Kross, Brooke Anderson.
 
+  
 # Resources
 
 ## Markdown

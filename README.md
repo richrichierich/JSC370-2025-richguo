@@ -21,7 +21,7 @@
 |  **Week 2** <br> January 13 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides02) <br> January 15 [lab](https://github.com/JSC370/JSC370-2025/labs/lab02/lab02-github.html) |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
 |  **Week 3** <br> January 20 [lecture]()  <br> January 22 [lab]() |  Exploratory Data Analysis   |**Lab 3**|
 |  **Week 4** <br> January 27 [lecture]() <br> January 29 [lab]() |  Data visualization |   **[HW1](), Lab 4**   |
-|  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 (gam)| **[Lab 5** |
+|  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 (gam)| **Lab 5** |
 |  **Week 6** <br> February 10 [lecture]() <br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **[HW2](), Lab 6**  |
 |  **Week 7** <br> February 17 | Reading Week  |   |
 |  **Week 8** <br> February 24 [lecture]() <br> February 26 [lab]()  | Text mining  |  **[HW3](), Lab 8** |

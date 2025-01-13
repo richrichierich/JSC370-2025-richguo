@@ -1,10 +1,7 @@
 ---
 title: "Lab 01 - Hello R!"
 author: "Meredith Franklin"
-date: '`r format(Sys.Date(), "%B %d, %Y")`'
-output: 
-  html_document:
-link-citations: yes
+date: "January 8, 2025"
 ---
 
 # Learning goals
@@ -127,7 +124,7 @@ To find out more about the dataset, type the following in your Console: `?datasa
 Let's take a look at what these datasets are. To do so we can make a *frequency table* of the dataset variable:
 
 ```{r}
-datasaurus_dozen %>%
+datasaurus_dozen |>
   count(dataset)
 ```
 
@@ -152,7 +149,7 @@ First, the pipe operator: `%>%`, which has been updated to `|>` (but both work),
 
 Second, the assignment operator: `<-`, assigns the name `dino_data` to the filtered data frame.
 
-Next, we need to visualize these data. We will use the `ggplot` function for this. Its first argument is the data you're visualizing. Next we define the `aes`thetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the `x` axis will represent the variable called `x` and the `y` axis will represent the variable called `y`. Then, we add another layer to this plot where we define which `geom`etric shapes we want to use to represent each observation in the data. In this case we want these to be points,m hence `geom_point`.
+Next, we need to visualize these data. We will use the `ggplot` function for this. Its first argument is the data you're visualizing. Next we define the `aes`thetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the `x` axis will represent the variable called `x` and the `y` axis will represent the variable called `y`. Then, we add another layer to this plot where we define which `geom`etric shapes we want to use to represent each observation in the data. In this case we want these to be points, hence `geom_point`.
 
 ```{r fig.fullwidth=TRUE}
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
@@ -167,12 +164,20 @@ But, for illustrative purposes, let's calculate correlation coefficient between 
 
 Start with `dino_data` and calculate a summary statistic that we will call `r` as the `cor`relation between `x` and `y`.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 dino_data |>
   summarize(r = cor(x, y))
 ```
 
 3. Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+
+
+```{r}
+
+```
+
+The correlation of the star data is ...
+
 
 4. Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 

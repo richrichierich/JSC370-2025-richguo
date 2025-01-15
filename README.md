@@ -18,7 +18,7 @@
 |   | Topics/Weekly Activities  | Labs Due Wednesdays 11:59pm <br> HW Due Fridays 11:59pm |
 |---|---|---|
 |  **Week 1** <br> January 6 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides01)  <br> January 8 [lab](https://jsc370.github.io/JSC370-2025/labs/lab01/lab01-hello-R.html)  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
-|  **Week 2** <br> January 13 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides02) <br> January 15 [lab](https://github.com/JSC370/JSC370-2025/labs/lab02/lab02-github.html) |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
+|  **Week 2** <br> January 13 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides02) <br> January 15 [lab](https://jsc370.github.io/JSC370-2025/labs/lab02/lab02-github.html) |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
 |  **Week 3** <br> January 20 [lecture]()  <br> January 22 [lab]() |  Exploratory Data Analysis   |**Lab 3**|
 |  **Week 4** <br> January 27 [lecture]() <br> January 29 [lab]() |  Data visualization |   **[HW1](), Lab 4**   |
 |  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 (gam)| **Lab 5** |

@@ -1,15 +1,15 @@
 ---
-name: [Metereological data from the Integrated Surface Dataset (ISD)]
+name: [Climate Data Online: National Oceanographic and Atmospheric Administration]
 short-desc: [Sample of the Integrated Surface Data]
-date-collected: 2020-06-30
-source-url: [ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-history.csv]
-url: [https://www.ncdc.noaa.gov/isd]
-keywords: [spatial data]
+date-collected: 2025-01-20
+source-url: [https://www.ncei.noaa.gov/data/global-hourly/access/2024/]
+url: [NOAA NCEI](https://www.ncdc.noaa.gov/cdo-web/datasets]
+keywords: [Weather data, spatial data, time series]
 format: [csv]
 ---
 
-Directly from the NOAA's Website
+Directly from NOAA's Website
 
-The Integrated Surface Database (ISD) consists of global hourly and synoptic observations compiled from numerous sources into a single common ASCII format and common data model. ISD was developed as a joint activity within Asheville's Federal Climate Complex. NCEI, with U.S. Air Force and Navy partners, began the effort in 1998 with the assistance of external funding from several sources. ISD integrates data from over 100 original data sources, including numerous data formats that were key-entered from paper forms during the 1950s–1970s time frame.
+Integrated Surface Data provides a long-term record of hourly, sub-hourly and synoptic weather observations from station networks around the world. Observation sources include the World Meteorological Organization, Automated Surface Observing System, Automated Weather Observing Stations, US Climate Reference Network, and others. Weather elements observed include sky conditions, visibility, weather type, dry bulb, wet bulb, and dew point temperatures, relative humidity, wind speed and direction, wind gusts, station and sea level pressure, altimeter, and precipitation. Online data are typically delayed for 24 hours.
 
 This dataset is a subset of all that data, in particular, US data only.

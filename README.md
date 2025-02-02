@@ -22,7 +22,7 @@
 |  **Week 3** <br> January 20 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides03)  <br> January 22 [lab](https://jsc370.github.io/JSC370-2025/labs/lab03/03-lab-eda.html) |  Exploratory Data Analysis   |**Lab 3**|
 |  **Week 4** <br> January 27 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides04) <br> January 29 [lab](https://jsc370.github.io/JSC370-2025/labs/lab03/04-lab-dataviz.html) |  Data visualization |   **[HW1](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw01/hw1_2025.pdf), Lab 4**   |
 |  **Week 5** <br> February 3 [lecture]() <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 (gam)| **Lab 5** |
-|  **Week 6** <br> February 10 [lecture]() <br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **[HW2](), Lab 6**  |
+|  **Week 6** <br> February 10 [lecture]() <br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **[HW2](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw02/hw2_2025.pdf), Lab 6**  |
 |  **Week 7** <br> February 17 | Reading Week  |   |
 |  **Week 8** <br> February 24 [lecture]() <br> February 26 [lab]()  | Text mining  |  **[HW3](), Lab 8** |
 |  **Week 9** <br> March 3 [lecture]() <br> March 5 [lab]()  |  High performance computing, cloud computing  | **[Midterm](), Lab 9**   |

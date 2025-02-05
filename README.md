@@ -20,8 +20,8 @@
 |  **Week 1** <br> January 6 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides01)  <br> January 8 [lab](https://jsc370.github.io/JSC370-2025/labs/lab01/lab01-hello-R.html)  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 13 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides02) <br> January 15 [lab](https://jsc370.github.io/JSC370-2025/labs/lab02/lab02-github.html) |   <br> Version Control & Reproducible Research, Git |  **Lab 2**|
 |  **Week 3** <br> January 20 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides03)  <br> January 22 [lab](https://jsc370.github.io/JSC370-2025/labs/lab03/03-lab-eda.html) |  Exploratory Data Analysis   |**Lab 3**|
-|  **Week 4** <br> January 27 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides04) <br> January 29 [lab](https://jsc370.github.io/JSC370-2025/labs/lab03/04-lab-dataviz.html) |  Data visualization |   **[HW1](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw01/hw1_2025.pdf), Lab 4**   |
-|  **Week 5** <br> February 3 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides05) <br> February 5 [lab]() | Data cleaning and wrangling <br> ML 1 (gam)| **Lab 5** |
+|  **Week 4** <br> January 27 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides04) <br> January 29 [lab](https://jsc370.github.io/JSC370-2025/labs/lab04/04-lab-dataviz.html) |  Data visualization |   **[HW1](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw01/hw1_2025.pdf), Lab 4**   |
+|  **Week 5** <br> February 3 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides05) <br> February 5 [lab](https://jsc370.github.io/JSC370-2025/labs/lab05/lab05-wrangling-gam.html) | Data cleaning and wrangling <br> ML 1 (gam)| **Lab 5** |
 |  **Week 6** <br> February 10 [lecture]() <br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **[HW2](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw02/hw2_2025.pdf), Lab 6**  |
 |  **Week 7** <br> February 17 | Reading Week  |   |
 |  **Week 8** <br> February 24 [lecture]() <br> February 26 [lab]()  | Text mining  |  **[HW3](), Lab 8** |

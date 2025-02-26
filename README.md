@@ -25,8 +25,8 @@
 |  **Week 6** <br> February 10 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides06) <br> February 12 [lab]() | Regular Expressions, Data scraping, using APIs  |  **[HW2](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw02/hw2_2025.pdf), Lab 6**  |
 |  **Week 7** <br> February 17 | Reading Week  |   |
 |  **Week 8** <br> February 24 [lecture](https://rpubs.com/meredithfranklin/jsc370-slides08) <br> February 26 [lab]()  | Text mining  |  **Lab 8** |
-|  **Week 9** <br> March 3 [lecture]() <br> March 5 [lab]()  |  High performance computing, cloud computing  | **[Midterm](https://github.com/JSC370/JSC370-2025/blob/main/homework/midterm/midterm-2025.pdf), [HW3](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw03/hw3_2025.pdf), Lab 9**   |
-|  **Week 10** <br> March 10 [lecture]() <br> March 12 [lab]() |  ML 2 (trees, rf, xgboost)   | **Lab 10** |
+|  **Week 9** <br> March 3 [lecture]() <br> March 5 [lab]()  |  High performance computing, cloud computing  | **[HW3](https://github.com/JSC370/JSC370-2025/blob/main/homework/hw03/hw3_2025.pdf), Lab 9**   |
+|  **Week 10** <br> March 10 [lecture]() <br> March 12 [lab]() |  ML 2 (trees, rf, xgboost)   | **[Midterm](https://github.com/JSC370/JSC370-2025/blob/main/homework/midterm/midterm-2025.pdf), Lab 10** |
 |  **Week 11** <br> March 17 [lecture]() <br> March 19 [lab11]()| <br> Interactive visualization and effective data communication I  |  **[HW4](), Lab 11**  |
 |  **Week 12** <br> March 23 [lecture]() <br> March 26 [lab12]() | Interactive visualization and effective data communication II  | **Lab 12**  |
 |  **Week 13** <br> March 31  <br> April 2 |  Final Project Workshop |  **[HW5]()** |

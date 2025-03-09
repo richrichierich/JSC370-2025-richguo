@@ -57,7 +57,7 @@ Errors
     Number of errors
 Salary
 
-    1987 annual salary on opening day in thousands of dollars
+    Annual salary on opening day in thousands of dollars
     
 NewLeague
 

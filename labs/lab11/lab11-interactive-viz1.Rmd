@@ -41,13 +41,13 @@ library(tidytext)
 
 ```{r}
 
-sb_locs <- read_csv()
+sb_locs <- read_csv("https://raw.githubusercontent.com/JSC370/JSC370-2025/refs/heads/main/data/starbucks/starbucks-locations.csv")
 
-sb_nutr <- read_csv()
+sb_nutr <- read_csv("https://raw.githubusercontent.com/JSC370/JSC370-2025/refs/heads/main/data/starbucks/starbucks-menu-nutrition.csv")
 
-usa_pop <- read_csv()
+usa_pop <- read_csv("https://raw.githubusercontent.com/JSC370/JSC370-2025/refs/heads/main/data/starbucks/us_state_pop.csv")
 
-usa_states<-read_csv()
+usa_states<-read_csv("https://raw.githubusercontent.com/JSC370/JSC370-2025/refs/heads/main/data/starbucks/states.csv")
 ```
 
 ### 2. Look at the data

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Your Name" />
+
+
+<title>JSC370 Final Project</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/JSC370/JSC370-2025/">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://jsc370.github.io/JSC370-2025/">JSC370 Home</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">JSC370 Final Project</h1>
+<h4 class="author">Your Name</h4>
+
+</div>
+
+
+<p><br></p>
+<p>This is my JSC370 Final Project website. I will showcase a few
+interactive visuals here.</p>
+<p><br></p>
+<style type="text/css">
+.code-r { /* Code block */
+  font-size: 15px;
+}
+
+.code-r-small { /* Code block */
+  font-size: 10px;
+}
+</style>
+<p><br></p>
+<div id="first-step" class="section level2">
+<h2>First step</h2>
+<p>First I will source any necessary code,
+e.g. <code>process_starbucks_data.R</code>:</p>
+<pre class="r code-r"><code>source(&quot;process_starbucks_data.R&quot;)</code></pre>
+<p><br></p>
+</div>
+<div id="second-step" class="section level2">
+<h2>Second step</h2>
+<p>Then I will add some code to create the <strong>plotly</strong>
+figures</p>
+<p>Note: You need to name each code chunk, like this one:
+<code>plot1</code></p>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-4b4e63ae03b36acb150f" style="width:700px;height:415.296px;"></div>
+<script type="application/json" data-for="htmlwidget-4b4e63ae03b36acb150f">{"x":{"data":[{"x":[710231],"y":[49],"text":"population:   710231<br />n_stores:   49<br />state: AK","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"AK","legendgroup":"AK","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4779736],"y":[85],"text":"population:  4779736<br />n_stores:   85<br />state: AL","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(243,123,89,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(243,123,89,1)"}},"hoveron":"points","name":"AL","legendgroup":"AL","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2915918],"y":[55],"text":"population:  2915918<br />n_stores:   55<br />state: AR","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(238,128,66,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(238,128,66,1)"}},"hoveron":"points","name":"AR","legendgroup":"AR","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6392017],"y":[488],"text":"population:  6392017<br />n_stores:  488<br />state: AZ","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,133,30,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,133,30,1)"}},"hoveron":"points","name":"AZ","legendgroup":"AZ","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[37253956],"y":[2821],"text":"population: 37253956<br />n_stores: 2821<br />state: CA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(224,138,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(224,138,0,1)"}},"hoveron":"points","name":"CA","legendgroup":"CA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5029196],"y":[481],"text":"population:  5029196<br />n_stores:  481<br />state: CO","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(217,143,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(217,143,0,1)"}},"hoveron":"points","name":"CO","legendgroup":"CO","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3574097],"y":[123],"text":"population:  3574097<br />n_stores:  123<br />state: CT","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(208,148,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(208,148,0,1)"}},"hoveron":"points","name":"CT","legendgroup":"CT","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[601723],"y":[91],"text":"population:   601723<br />n_stores:   91<br />state: DC","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(199,152,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(199,152,0,1)"}},"hoveron":"points","name":"DC","legendgroup":"DC","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[897934],"y":[25],"text":"population:   897934<br />n_stores:   25<br />state: DE","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(189,157,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(189,157,0,1)"}},"hoveron":"points","name":"DE","legendgroup":"DE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[18801310],"y":[694],"text":"population: 18801310<br />n_stores:  694<br />state: FL","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(178,161,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(178,161,0,1)"}},"hoveron":"points","name":"FL","legendgroup":"FL","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[9687653],"y":[326],"text":"population:  9687653<br />n_stores:  326<br />state: GA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(165,165,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(165,165,0,1)"}},"hoveron":"points","name":"GA","legendgroup":"GA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1360301],"y":[99],"text":"population:  1360301<br />n_stores:   99<br />state: HI","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(152,168,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(152,168,0,1)"}},"hoveron":"points","name":"HI","legendgroup":"HI","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3046355],"y":[89],"text":"population:  3046355<br />n_stores:   89<br />state: IA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(137,172,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(137,172,0,1)"}},"hoveron":"points","name":"IA","legendgroup":"IA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1567582],"y":[67],"text":"population:  1567582<br />n_stores:   67<br />state: ID","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(119,175,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(119,175,0,1)"}},"hoveron":"points","name":"ID","legendgroup":"ID","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[12830632],"y":[575],"text":"population: 12830632<br />n_stores:  575<br />state: IL","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(98,178,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(98,178,0,1)"}},"hoveron":"points","name":"IL","legendgroup":"IL","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6483802],"y":[221],"text":"population:  6483802<br />n_stores:  221<br />state: IN","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(69,181,0,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(69,181,0,1)"}},"hoveron":"points","name":"IN","legendgroup":"IN","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2853118],"y":[94],"text":"population:  2853118<br />n_stores:   94<br />state: KS","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,183,9,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,183,9,1)"}},"hoveron":"points","name":"KS","legendgroup":"KS","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4339367],"y":[116],"text":"population:  4339367<br />n_stores:  116<br />state: KY","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,186,56,1)"}},"hoveron":"points","name":"KY","legendgroup":"KY","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4533372],"y":[84],"text":"population:  4533372<br />n_stores:   84<br />state: LA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,188,81,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,188,81,1)"}},"hoveron":"points","name":"LA","legendgroup":"LA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6547629],"y":[273],"text":"population:  6547629<br />n_stores:  273<br />state: MA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,189,101,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,189,101,1)"}},"hoveron":"points","name":"MA","legendgroup":"MA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5773552],"y":[257],"text":"population:  5773552<br />n_stores:  257<br />state: MD","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,119,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,119,1)"}},"hoveron":"points","name":"MD","legendgroup":"MD","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1328361],"y":[30],"text":"population:  1328361<br />n_stores:   30<br />state: ME","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,135,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,192,135,1)"}},"hoveron":"points","name":"ME","legendgroup":"ME","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[9883640],"y":[283],"text":"population:  9883640<br />n_stores:  283<br />state: MI","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,150,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,192,150,1)"}},"hoveron":"points","name":"MI","legendgroup":"MI","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5303925],"y":[184],"text":"population:  5303925<br />n_stores:  184<br />state: MN","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,193,164,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,193,164,1)"}},"hoveron":"points","name":"MN","legendgroup":"MN","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5988927],"y":[188],"text":"population:  5988927<br />n_stores:  188<br />state: MO","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,178,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,192,178,1)"}},"hoveron":"points","name":"MO","legendgroup":"MO","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2967297],"y":[32],"text":"population:  2967297<br />n_stores:   32<br />state: MS","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,192,190,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,192,190,1)"}},"hoveron":"points","name":"MS","legendgroup":"MS","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[989415],"y":[36],"text":"population:   989415<br />n_stores:   36<br />state: MT","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,190,202,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,190,202,1)"}},"hoveron":"points","name":"MT","legendgroup":"MT","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[9535483],"y":[338],"text":"population:  9535483<br />n_stores:  338<br />state: NC","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,188,214,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,188,214,1)"}},"hoveron":"points","name":"NC","legendgroup":"NC","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[672591],"y":[13],"text":"population:   672591<br />n_stores:   13<br />state: ND","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,186,224,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,186,224,1)"}},"hoveron":"points","name":"ND","legendgroup":"ND","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1826341],"y":[58],"text":"population:  1826341<br />n_stores:   58<br />state: NE","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,183,233,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,183,233,1)"}},"hoveron":"points","name":"NE","legendgroup":"NE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1316470],"y":[29],"text":"population:  1316470<br />n_stores:   29<br />state: NH","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,179,242,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,179,242,1)"}},"hoveron":"points","name":"NH","legendgroup":"NH","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[8791894],"y":[261],"text":"population:  8791894<br />n_stores:  261<br />state: NJ","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,174,249,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,174,249,1)"}},"hoveron":"points","name":"NJ","legendgroup":"NJ","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2059179],"y":[76],"text":"population:  2059179<br />n_stores:   76<br />state: NM","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,169,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,169,255,1)"}},"hoveron":"points","name":"NM","legendgroup":"NM","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2700551],"y":[253],"text":"population:  2700551<br />n_stores:  253<br />state: NV","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(40,163,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(40,163,255,1)"}},"hoveron":"points","name":"NV","legendgroup":"NV","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[19378102],"y":[645],"text":"population: 19378102<br />n_stores:  645<br />state: NY","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(97,156,255,1)"}},"hoveron":"points","name":"NY","legendgroup":"NY","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[11536504],"y":[378],"text":"population: 11536504<br />n_stores:  378<br />state: OH","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(130,149,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(130,149,255,1)"}},"hoveron":"points","name":"OH","legendgroup":"OH","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3751351],"y":[79],"text":"population:  3751351<br />n_stores:   79<br />state: OK","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(156,141,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(156,141,255,1)"}},"hoveron":"points","name":"OK","legendgroup":"OK","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3831074],"y":[359],"text":"population:  3831074<br />n_stores:  359<br />state: OR","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(177,134,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(177,134,255,1)"}},"hoveron":"points","name":"OR","legendgroup":"OR","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[12702379],"y":[357],"text":"population: 12702379<br />n_stores:  357<br />state: PA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(195,126,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(195,126,255,1)"}},"hoveron":"points","name":"PA","legendgroup":"PA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1052567],"y":[27],"text":"population:  1052567<br />n_stores:   27<br />state: RI","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(210,119,255,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(210,119,255,1)"}},"hoveron":"points","name":"RI","legendgroup":"RI","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4625364],"y":[131],"text":"population:  4625364<br />n_stores:  131<br />state: SC","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(223,112,249,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(223,112,249,1)"}},"hoveron":"points","name":"SC","legendgroup":"SC","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[814180],"y":[25],"text":"population:   814180<br />n_stores:   25<br />state: SD","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(233,106,241,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(233,106,241,1)"}},"hoveron":"points","name":"SD","legendgroup":"SD","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6346105],"y":[180],"text":"population:  6346105<br />n_stores:  180<br />state: TN","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(241,102,232,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(241,102,232,1)"}},"hoveron":"points","name":"TN","legendgroup":"TN","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[25145561],"y":[1042],"text":"population: 25145561<br />n_stores: 1042<br />state: TX","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,99,222,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,99,222,1)"}},"hoveron":"points","name":"TX","legendgroup":"TX","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2763885],"y":[101],"text":"population:  2763885<br />n_stores:  101<br />state: UT","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(252,97,211,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(252,97,211,1)"}},"hoveron":"points","name":"UT","legendgroup":"UT","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[8001024],"y":[432],"text":"population:  8001024<br />n_stores:  432<br />state: VA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,97,199,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(255,97,199,1)"}},"hoveron":"points","name":"VA","legendgroup":"VA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[625741],"y":[8],"text":"population:   625741<br />n_stores:    8<br />state: VT","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,98,186,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(255,98,186,1)"}},"hoveron":"points","name":"VT","legendgroup":"VT","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[6724540],"y":[757],"text":"population:  6724540<br />n_stores:  757<br />state: WA","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,101,173,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(255,101,173,1)"}},"hoveron":"points","name":"WA","legendgroup":"WA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5686986],"y":[145],"text":"population:  5686986<br />n_stores:  145<br />state: WI","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,104,158,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(255,104,158,1)"}},"hoveron":"points","name":"WI","legendgroup":"WI","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1852994],"y":[25],"text":"population:  1852994<br />n_stores:   25<br />state: WV","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,109,143,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(255,109,143,1)"}},"hoveron":"points","name":"WV","legendgroup":"WV","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[563626],"y":[23],"text":"population:   563626<br />n_stores:   23<br />state: WY","type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(252,113,127,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(252,113,127,1)"}},"hoveron":"points","name":"WY","legendgroup":"WY","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3194000,106977,165768,56882],"y":[null,null,null,null],"text":["population:  3194000<br />n_stores:   NA<br />state: NA","population:   106977<br />n_stores:   NA<br />state: NA","population:   165768<br />n_stores:   NA<br />state: NA","population:    56882<br />n_stores:   NA<br />state: NA"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(127,127,127,1)","opacity":0.80000000000000004,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(127,127,127,1)"}},"hoveron":"points","name":"NA","legendgroup":"NA","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":27.821903030840396,"r":7.3059360730593621,"b":41.776240930383779,"l":48.949771689497723},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1802971.7000000002,39113809.700000003],"tickmode":"array","ticktext":["0e+00","1e+07","2e+07","3e+07"],"tickvals":[0,10000000,20000000,30000000],"categoryorder":"array","categoryarray":["0e+00","1e+07","2e+07","3e+07"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716894984},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"population","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-132.65000000000001,2961.6500000000001],"tickmode":"array","ticktext":["0","1000","2000"],"tickvals":[0,1000.0000000000001,2000],"categoryorder":"array","categoryarray":["0","1000","2000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"n_stores","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716894984},"title":{"text":"state","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"17b3d2863e705":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"17b3d2863e705","visdat":{"17b3d2863e705":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p><br></p>
+</div>
+<div id="third-step" class="section level2 tabset">
+<h2 class="tabset">Third step</h2>
+<p>Create tabs to display each figure</p>
+<div id="histogram-of-calories" class="section level3">
+<h3>Histogram of Calories</h3>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f727cd145d41af14c12b" style="width:700px;height:415.296px;"></div>
+<script type="application/json" data-for="htmlwidget-f727cd145d41af14c12b">{"x":{"data":[{"orientation":"v","width":[22.413793103448278,22.41379310344827,22.41379310344827,22.413793103448285,22.413793103448285,22.413793103448256,22.413793103448313,22.413793103448256,22.413793103448256,22.413793103448256,22.413793103448256,22.413793103448256,22.41379310344837,22.413793103448256,22.41379310344837,22.413793103448256,22.413793103448256,22.41379310344837,22.413793103448256,22.41379310344837,22.413793103448256,22.413793103448256,22.413793103448256,22.413793103448143,22.41379310344837,22.41379310344837,22.41379310344837,22.41379310344837,22.41379310344837,22.41379310344837],"base":[0,0,0,0,4,1,1,2,9,2,2,5,4,7,5,7,10,8,4,9,5,11,7,2,1,3,0,2,1,1],"x":[0,22.413793103448278,44.827586206896548,67.241379310344826,89.65517241379311,112.06896551724138,134.48275862068965,156.89655172413796,179.31034482758622,201.72413793103453,224.13793103448279,246.55172413793105,268.9655172413793,291.37931034482762,313.79310344827593,336.20689655172418,358.62068965517244,381.0344827586207,403.44827586206901,425.86206896551732,448.27586206896558,470.68965517241384,493.10344827586209,515.51724137931035,537.93103448275861,560.34482758620697,582.75862068965512,605.17241379310349,627.58620689655163,650],"y":[11,3,3,12,5,8,18,6,5,5,1,4,3,3,2,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0],"text":["count: 11<br />Calories:   0.00000<br />Category: Drinks","count:  3<br />Calories:  22.41379<br />Category: Drinks","count:  3<br />Calories:  44.82759<br />Category: Drinks","count: 12<br />Calories:  67.24138<br />Category: Drinks","count:  5<br />Calories:  89.65517<br />Category: Drinks","count:  8<br />Calories: 112.06897<br />Category: Drinks","count: 18<br />Calories: 134.48276<br />Category: Drinks","count:  6<br />Calories: 156.89655<br />Category: Drinks","count:  5<br />Calories: 179.31034<br />Category: Drinks","count:  5<br />Calories: 201.72414<br />Category: Drinks","count:  1<br />Calories: 224.13793<br />Category: Drinks","count:  4<br />Calories: 246.55172<br />Category: Drinks","count:  3<br />Calories: 268.96552<br />Category: Drinks","count:  3<br />Calories: 291.37931<br />Category: Drinks","count:  2<br />Calories: 313.79310<br />Category: Drinks","count:  0<br />Calories: 336.20690<br />Category: Drinks","count:  2<br />Calories: 358.62069<br />Category: Drinks","count:  0<br />Calories: 381.03448<br />Category: Drinks","count:  0<br />Calories: 403.44828<br />Category: Drinks","count:  1<br />Calories: 425.86207<br />Category: Drinks","count:  0<br />Calories: 448.27586<br />Category: Drinks","count:  0<br />Calories: 470.68966<br />Category: Drinks","count:  0<br />Calories: 493.10345<br />Category: Drinks","count:  0<br />Calories: 515.51724<br />Category: Drinks","count:  0<br />Calories: 537.93103<br />Category: Drinks","count:  0<br />Calories: 560.34483<br />Category: Drinks","count:  0<br />Calories: 582.75862<br />Category: Drinks","count:  0<br />Calories: 605.17241<br />Category: Drinks","count:  0<br />Calories: 627.58621<br />Category: Drinks","count:  0<br />Calories: 650.00000<br />Category: Drinks"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Drinks","legendgroup":"Drinks","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[22.413793103448278,22.41379310344827,22.41379310344827,22.413793103448285,22.413793103448285,22.413793103448256,22.413793103448313,22.413793103448256,22.413793103448256,22.413793103448256,22.413793103448256,22.413793103448256,22.41379310344837,22.413793103448256,22.41379310344837,22.413793103448256,22.413793103448256,22.41379310344837,22.413793103448256,22.41379310344837,22.413793103448256,22.413793103448256,22.413793103448256,22.413793103448143,22.41379310344837,22.41379310344837,22.41379310344837,22.41379310344837,22.41379310344837,22.41379310344837],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[0,22.413793103448278,44.827586206896548,67.241379310344826,89.65517241379311,112.06896551724138,134.48275862068965,156.89655172413796,179.31034482758622,201.72413793103453,224.13793103448279,246.55172413793105,268.9655172413793,291.37931034482762,313.79310344827593,336.20689655172418,358.62068965517244,381.0344827586207,403.44827586206901,425.86206896551732,448.27586206896558,470.68965517241384,493.10344827586209,515.51724137931035,537.93103448275861,560.34482758620697,582.75862068965512,605.17241379310349,627.58620689655163,650],"y":[0,0,0,0,4,1,1,2,9,2,2,5,4,7,5,7,10,8,4,9,5,11,7,2,1,3,0,2,1,1],"text":["count:  0<br />Calories:   0.00000<br />Category: Food","count:  0<br />Calories:  22.41379<br />Category: Food","count:  0<br />Calories:  44.82759<br />Category: Food","count:  0<br />Calories:  67.24138<br />Category: Food","count:  4<br />Calories:  89.65517<br />Category: Food","count:  1<br />Calories: 112.06897<br />Category: Food","count:  1<br />Calories: 134.48276<br />Category: Food","count:  2<br />Calories: 156.89655<br />Category: Food","count:  9<br />Calories: 179.31034<br />Category: Food","count:  2<br />Calories: 201.72414<br />Category: Food","count:  2<br />Calories: 224.13793<br />Category: Food","count:  5<br />Calories: 246.55172<br />Category: Food","count:  4<br />Calories: 268.96552<br />Category: Food","count:  7<br />Calories: 291.37931<br />Category: Food","count:  5<br />Calories: 313.79310<br />Category: Food","count:  7<br />Calories: 336.20690<br />Category: Food","count: 10<br />Calories: 358.62069<br />Category: Food","count:  8<br />Calories: 381.03448<br />Category: Food","count:  4<br />Calories: 403.44828<br />Category: Food","count:  9<br />Calories: 425.86207<br />Category: Food","count:  5<br />Calories: 448.27586<br />Category: Food","count: 11<br />Calories: 470.68966<br />Category: Food","count:  7<br />Calories: 493.10345<br />Category: Food","count:  2<br />Calories: 515.51724<br />Category: Food","count:  1<br />Calories: 537.93103<br />Category: Food","count:  3<br />Calories: 560.34483<br />Category: Food","count:  0<br />Calories: 582.75862<br />Category: Food","count:  2<br />Calories: 605.17241<br />Category: Food","count:  1<br />Calories: 627.58621<br />Category: Food","count:  1<br />Calories: 650.00000<br />Category: Food"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,0.5)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Food","legendgroup":"Food","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":27.821903030840396,"r":7.3059360730593621,"b":41.776240930383779,"l":37.260273972602747},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-44.827586206896555,694.82758620689663],"tickmode":"array","ticktext":["0","200","400","600"],"tickvals":[0,200,399.99999999999994,600],"categoryorder":"array","categoryarray":["0","200","400","600"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716894984},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Calories","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.95000000000000007,19.949999999999999],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716894984},"title":{"text":"Category","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"17b3de59a66b":{"x":{},"fill":{},"type":"bar"}},"cur_data":"17b3de59a66b","visdat":{"17b3de59a66b":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="boxplot-of-nutrition" class="section level3">
+<h3>Boxplot of Nutrition</h3>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-7b4d83f88270ea972408" style="width:700px;height:415.296px;"></div>
+<script type="application/json" data-for="htmlwidget-7b4d83f88270ea972408">{"x":{"visdat":{"17b3d722c910":["function () ","plotlyVisDat"]},"cur_data":"17b3d722c910","attrs":{"17b3d722c910":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"box"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Nutritional Values of Starbucks Items by Top 10 Words","xaxis":{"domain":[0,1],"automargin":true,"title":"Item Word","type":"category","categoryorder":"array","categoryarray":["black","bottled","chocolate","coffee","egg","iced","sandwich","starbucks","tazo","tea"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Nutritional Value"},"boxmode":"group","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"fillcolor":"rgba(102,194,165,0.5)","x":["chocolate","chocolate","chocolate","chocolate","chocolate","chocolate","coffee","chocolate","chocolate","chocolate","iced","coffee","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","chocolate","chocolate","egg","sandwich","sandwich","egg","sandwich","egg","sandwich","egg","sandwich","egg","egg","sandwich","egg","egg","egg","egg","sandwich","egg","black","sandwich","egg","sandwich","sandwich","chocolate","iced","coffee","iced","coffee","starbucks","iced","coffee","coffee","iced","black","tea","iced","tea","iced","tea","starbucks","starbucks","starbucks","iced","coffee","starbucks","tazo","bottled","tazo","bottled","iced","black","tea","iced","tea","starbucks","iced","coffee","tazo","bottled","tazo","bottled","iced","black","tea","tazo","bottled","iced","iced","black","tea","iced","tea","tazo","bottled","iced","starbucks","tea","iced","tea","starbucks","starbucks","coffee","coffee","tazo","bottled","tazo","bottled","iced","tea","tazo","bottled","tazo","bottled","iced","tea","iced","iced","iced","iced","iced","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","coffee","tazo","bottled","black","tazo","bottled","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","starbucks","iced","starbucks","chocolate","iced","iced","iced","coffee","iced","chocolate","chocolate","chocolate","coffee","chocolate","starbucks","chocolate"],"y":[170,310,440,330,390,490,390,410,490,440,470,370,600,300,430,300,360,600,530,350,500,160,180,370,370,280,490,490,230,230,500,500,410,450,450,310,170,170,500,500,290,420,470,480,480,460,180,0,0,5,5,10,10,10,10,30,30,30,30,30,30,30,45,45,50,50,50,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,70,70,70,70,70,70,70,70,70,70,70,80,80,90,90,90,90,110,110,120,120,120,120,120,120,120,120,120,120,120,120,130,130,130,130,130,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,150,150,150,150,150,150,150,150,150,150,150,150,150,150,190,200,200,210,210,230,250,260,280,300,300,320,320,350,360,430,430],"type":"box","name":"Calories","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(252,141,98,0.5)","x":["chocolate","chocolate","chocolate","chocolate","chocolate","chocolate","coffee","chocolate","chocolate","chocolate","iced","coffee","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","chocolate","chocolate","egg","sandwich","sandwich","egg","sandwich","egg","sandwich","egg","sandwich","egg","egg","sandwich","egg","egg","egg","egg","sandwich","egg","black","sandwich","egg","sandwich","sandwich","chocolate","iced","coffee","iced","coffee","starbucks","iced","coffee","coffee","iced","black","tea","iced","tea","iced","tea","starbucks","starbucks","starbucks","iced","coffee","starbucks","tazo","bottled","tazo","bottled","iced","black","tea","iced","tea","starbucks","iced","coffee","tazo","bottled","tazo","bottled","iced","black","tea","tazo","bottled","iced","iced","black","tea","iced","tea","tazo","bottled","iced","starbucks","tea","iced","tea","starbucks","starbucks","coffee","coffee","tazo","bottled","tazo","bottled","iced","tea","tazo","bottled","tazo","bottled","iced","tea","iced","iced","iced","iced","iced","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","coffee","tazo","bottled","black","tazo","bottled","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","starbucks","iced","starbucks","chocolate","iced","iced","iced","coffee","iced","chocolate","chocolate","chocolate","coffee","chocolate","starbucks","chocolate"],"y":[30,42,60,38,43,64,57,46,55,54,68,67,80,34,34,43,52,47,44,31,46,23,23,32,32,18,40,40,28,28,41,41,43,42,42,9,13,13,35,35,33,42,35,42,42,31,12,0,0,0,0,2,2,2,0,8,8,8,8,8,8,8,11,5,11,11,11,14,15,15,15,15,15,15,15,15,15,13,13,13,15,15,15,15,15,15,15,17,17,17,17,17,17,17,17,17,17,17,18,19,24,24,27,27,24,24,31,31,31,31,31,31,31,31,31,31,31,31,21,21,21,21,13,23,35,35,35,35,35,35,35,35,35,35,35,35,23,35,35,35,35,35,35,35,35,35,35,35,35,28,38,38,38,37,37,38,38,38,38,38,37,37,38,38,30,34,34,33,33,36,37,34,60,47,47,47,53,64,53,45,45],"type":"box","name":"Carb. (g)","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(141,160,203,0.5)","x":["chocolate","chocolate","chocolate","chocolate","chocolate","chocolate","coffee","chocolate","chocolate","chocolate","iced","coffee","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","chocolate","chocolate","egg","sandwich","sandwich","egg","sandwich","egg","sandwich","egg","sandwich","egg","egg","sandwich","egg","egg","egg","egg","sandwich","egg","black","sandwich","egg","sandwich","sandwich","chocolate","iced","coffee","iced","coffee","starbucks","iced","coffee","coffee","iced","black","tea","iced","tea","iced","tea","starbucks","starbucks","starbucks","iced","coffee","starbucks","tazo","bottled","tazo","bottled","iced","black","tea","iced","tea","starbucks","iced","coffee","tazo","bottled","tazo","bottled","iced","black","tea","tazo","bottled","iced","iced","black","tea","iced","tea","tazo","bottled","iced","starbucks","tea","iced","tea","starbucks","starbucks","coffee","coffee","tazo","bottled","tazo","bottled","iced","tea","tazo","bottled","tazo","bottled","iced","tea","iced","iced","iced","iced","iced","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","coffee","tazo","bottled","black","tazo","bottled","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","starbucks","iced","starbucks","chocolate","iced","iced","iced","coffee","iced","chocolate","chocolate","chocolate","coffee","chocolate","starbucks","chocolate"],"y":[5,15,21,18,22,24,16,24,28,23,20,9,25,14,23,8,7,32,29,18,28,8,9,19,19,13,27,27,6,6,28,28,18,23,23,22,7,7,30,30,10,17,25,27,27,21,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2.5,2.5,2.5,2.5,4.5,2.5,0,0,0,0,0,0,0,0,0,0,0,0,2.5,0,0,0,0,0,0,0,0,0,0,0,0,0.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,2.5,4,2.5,2.5,6,7,9,2.5,8,8,9,5,4.5,11,26,26],"type":"box","name":"Fat (g)","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(231,138,195,0.5)","x":["chocolate","chocolate","chocolate","chocolate","chocolate","chocolate","coffee","chocolate","chocolate","chocolate","iced","coffee","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","chocolate","chocolate","egg","sandwich","sandwich","egg","sandwich","egg","sandwich","egg","sandwich","egg","egg","sandwich","egg","egg","egg","egg","sandwich","egg","black","sandwich","egg","sandwich","sandwich","chocolate","iced","coffee","iced","coffee","starbucks","iced","coffee","coffee","iced","black","tea","iced","tea","iced","tea","starbucks","starbucks","starbucks","iced","coffee","starbucks","tazo","bottled","tazo","bottled","iced","black","tea","iced","tea","starbucks","iced","coffee","tazo","bottled","tazo","bottled","iced","black","tea","tazo","bottled","iced","iced","black","tea","iced","tea","tazo","bottled","iced","starbucks","tea","iced","tea","starbucks","starbucks","coffee","coffee","tazo","bottled","tazo","bottled","iced","tea","tazo","bottled","tazo","bottled","iced","tea","iced","iced","iced","iced","iced","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","coffee","tazo","bottled","black","tazo","bottled","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","starbucks","iced","starbucks","chocolate","iced","iced","iced","coffee","iced","chocolate","chocolate","chocolate","coffee","chocolate","starbucks","chocolate"],"y":[2,2,2,1,2,2,1,3,3,3,1,2,10,2,3,2,3,6,2,1,4,1,0,1,1,6,1,1,2,2,1,1,2,1,1,0,1,1,3,3,6,9,3,7,7,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,2,2,4,0,0,2,0,0,4,8,0,0,5,5],"type":"box","name":"Fiber (g)","marker":{"color":"rgba(231,138,195,1)","line":{"color":"rgba(231,138,195,1)"}},"line":{"color":"rgba(231,138,195,1)"},"xaxis":"x","yaxis":"y","frame":null},{"fillcolor":"rgba(166,216,84,0.5)","x":["chocolate","chocolate","chocolate","chocolate","chocolate","chocolate","coffee","chocolate","chocolate","chocolate","iced","coffee","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","sandwich","chocolate","chocolate","egg","sandwich","sandwich","egg","sandwich","egg","sandwich","egg","sandwich","egg","egg","sandwich","egg","egg","egg","egg","sandwich","egg","black","sandwich","egg","sandwich","sandwich","chocolate","iced","coffee","iced","coffee","starbucks","iced","coffee","coffee","iced","black","tea","iced","tea","iced","tea","starbucks","starbucks","starbucks","iced","coffee","starbucks","tazo","bottled","tazo","bottled","iced","black","tea","iced","tea","starbucks","iced","coffee","tazo","bottled","tazo","bottled","iced","black","tea","tazo","bottled","iced","iced","black","tea","iced","tea","tazo","bottled","iced","starbucks","tea","iced","tea","starbucks","starbucks","coffee","coffee","tazo","bottled","tazo","bottled","iced","tea","tazo","bottled","tazo","bottled","iced","tea","iced","iced","iced","iced","iced","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","tazo","bottled","black","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","coffee","tazo","bottled","black","tazo","bottled","tazo","bottled","tazo","bottled","black","tazo","bottled","tazo","bottled","iced","starbucks","iced","starbucks","chocolate","iced","iced","iced","coffee","iced","chocolate","chocolate","chocolate","coffee","chocolate","starbucks","chocolate"],"y":[2,4,7,6,7,6,5,6,7,5,6,5,19,11,21,19,22,32,23,16,18,2,2,18,18,18,21,21,16,16,15,15,21,24,24,19,13,13,26,26,19,27,21,16,16,29,4,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,3,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,8,5,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,20,7,20,20,9,10,11,4,10,10,14,20,15,14,12,12],"type":"box","name":"Protein (g)","marker":{"color":"rgba(166,216,84,1)","line":{"color":"rgba(166,216,84,1)"}},"line":{"color":"rgba(166,216,84,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="section" class="section level2 unnumbered">
+<h2 class="unnumbered"></h2>
+<p><br></p>
+<p>Done!</p>
+<p><br> <br></p>
+</div>
+
+<p>Copyright &copy; 2025. Your Name.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

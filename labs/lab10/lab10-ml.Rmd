@@ -31,7 +31,7 @@ install.packages(c("rpart", "rpart.plot", "randomForest", "gbm", "xgboost"))
 ```
 
 ### Load packages and data
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE, eval = TRUE}
 library(tidyverse)
 library(rpart)
 library(rpart.plot)
@@ -42,11 +42,13 @@ library(caret)
 
 heart <- read_csv("https://raw.githubusercontent.com/JSC370/JSC370-2025/refs/heads/main/data/heart/heart.csv")
 
-  mutate(
+heart <- heart %>% mutate(
     AHD = 1 * (AHD == "Yes"),
     ChestPain = factor(ChestPain),
     Thal = factor(Thal)
   )
+
+heart <- heart %>% mutate(AHD = factor(AHD))
 
 head(heart)
 ```
@@ -58,52 +60,92 @@ head(heart)
 ## Question 1: Trees
 - Split the `heart` data into training and testing (70-30%)
 
-```{r}
+```{r, eval = TRUE}
+set.seed(123)  # Ensure reproducibility
+train_index <- createDataPartition(heart$AHD, p = 0.7, list = FALSE)
+heart_train <- heart[train_index, ]
+heart_test <- heart[-train_index, ]
 
 
 ```
 
 - Fit a classification tree using rpart, plot the full tree. We are trying to predict AHD. Set minsplit = 10, minbucket = 3, and do 10 cross validations.
 
-```{r}
+```{r, eval = TRUE}
 heart_tree <- rpart(
+  AHD ~ ., 
+  data = heart_train,
+  method = "class",  
+  control = rpart.control(minsplit = 10, minbucket = 3, cp = 0.01, xval = 10) 
 )
+
+# Plot the decision tree
 rpart.plot(heart_tree)
+
 ```
 
 - Plot the complexity parameter table for an rpart fit and find the optimal cp
 
-```{r}
+```{r, eval = TRUE}
 plotcp(heart_tree)
+
 printcp(heart_tree)
 
-optimalcp = # extract from cptable
+optimal_cp <- heart_tree$cptable[which.min(heart_tree$cptable[, "xerror"]), "CP"]
+optimal_cp
+
 ```
 
 - Prune the tree
 
-```{r}
-heart_tree_prune<-prune()
-rpart.plot()
+```{r, eval = TRUE}
+heart_tree_prune <- prune(heart_tree, cp = optimal_cp)
+
+rpart.plot(heart_tree_prune)
+
 ```
 
 - Compute the test misclassification error
 
-```{r}
-heart_pred<-predict(heart_tree_prune, heart_test)
-...
+```{r, eval = TRUE}
+heart_pred <- predict(heart_tree_prune, heart_test, type = "class")
+
+conf_matrix <- table(heart_test$AHD, heart_pred)
+test_error <- 1 - sum(diag(conf_matrix)) / sum(conf_matrix)
+test_error
+
 ```
 
 - Fit the tree with the optimal complexity parameter to the full data (training + testing)
 
-```{r}
-heart_tree<-rpart()
-...
+```{r, eval = TRUE}
+heart_tree_full <- rpart(
+  AHD ~ ., 
+  data = heart, 
+  method = "class", 
+  control = rpart.control(cp = optimal_cp)
+)
+
+rpart.plot(heart_tree_full)
+
 ```
 
 - Find the Out of Bag (OOB) error for tree
 
-```{r}
+```{r, eval = TRUE}
+set.seed(123)
+heart <- na.omit(heart)  
+
+cv_tree <- train(
+  AHD ~ ., 
+  data = heart, 
+  method = "rpart",
+  trControl = trainControl(method = "cv", number = 10), # 10-fold CV
+  tuneGrid = data.frame(cp = optimal_cp)
+)
+
+oob_error <- 1 - max(cv_tree$results$Accuracy)
+oob_error
 
 ```
 
@@ -119,24 +161,44 @@ heart_tree<-rpart()
 
 - For bagging use ``randomForest`` with ``mtry`` equal to the number of features (all other parameters at their default values). Generate the variable importance plot using ``varImpPlot`` and extract variable importance from the ``randomForest`` fitted object using the ``importance`` function.
 
-```{r}
-heart_bag<-randomForest()
-# oob error rate
-sum(heart_bag$err.rate[, 1])
+```{r, eval = TRUE}
+num_features <- ncol(heart_train) - 1
 
-varImpPlot()
-importance()
+set.seed(123)
+heart_train <- na.omit(heart_train)
+heart_bag <- randomForest(
+  AHD ~ ., 
+  data = heart_train, 
+  mtry = num_features,  
+  importance = TRUE
+)
+
+oob_error_bag <- heart_bag$err.rate[nrow(heart_bag$err.rate), 1]
+oob_error_bag
+
+
+varImpPlot(heart_bag)
+
+importance(heart_bag)
+
 ```
 
 - For random forests use ``randomForest`` with the default parameters. Generate the variable importance plot using ``varImpPlot`` and extract variable importance from the ``randomForest`` fitted object using the ``importance`` function.
 
-```{r}
-heart_rf <- randomForest()
-#oob error rate
-sum(heart_rf$err.rate[, 1])
+```{r, eval = TRUE}
+set.seed(123)
+heart_rf <- randomForest(
+  AHD ~ ., 
+  data = heart_train, 
+  importance = TRUE  
+)
 
-varImpPlot()
-importance()
+oob_error_rf <- heart_rf$err.rate[nrow(heart_rf$err.rate), 1]
+oob_error_rf
+
+varImpPlot(heart_rf)
+importance(heart_rf)
+
 ```
 ---
 
@@ -144,8 +206,35 @@ importance()
 
 - For boosting use `gbm` with ``cv.folds=5`` to perform 5-fold cross-validation, and set ``class.stratify.cv`` to ``AHD`` (heart disease outcome) so that cross-validation is performed stratifying by ``AHD``.  Plot the cross-validation error as a function of the boosting iteration/trees (the `$cv.error` component of the object returned by ``gbm``) and determine whether additional boosting iterations are warranted. If so, run additional iterations with  ``gbm.more`` (use the R help to check its syntax). Choose the optimal number of iterations. Use the ``summary.gbm`` function to generate the variable importance plot and extract variable importance/influence (``summary.gbm`` does both). Generate 1D and 2D marginal plots with ``gbm.plot`` to assess the effect of the top three variables and their 2-way interactions. 
 
-```{r}
-heart_boost = gbm()
+```{r, eval = TRUE}
+heart_train_numeric <- heart_train %>% mutate(AHD = as.integer(AHD) - 1)
+heart_train_numeric <- na.omit(heart_train_numeric)
+set.seed(123)
+heart_boost <- gbm(
+  AHD ~ ., 
+  data = heart_train_numeric, 
+  distribution = "bernoulli",  
+  n.trees = 1000,  
+  interaction.depth = 3,  
+  shrinkage = 0.01,  
+  cv.folds = 5,  
+  class.stratify.cv = TRUE,  
+  n.cores = NULL,  
+  verbose = FALSE  
+)
+
+gbm.perf(heart_boost, method = "cv")
+
+heart_boost <- gbm.more(heart_boost, n.new.trees = 500)
+
+summary(heart_boost)
+
+par(mfrow = c(2, 2))
+plot(heart_boost, i.var = 1)  
+plot(heart_boost, i.var = 2)  
+plot(heart_boost, i.var = 3) 
+plot(heart_boost, i.var = c(1, 2))
+
 
 ```
 
@@ -162,25 +251,80 @@ Note, boosting can overfit if the number of trees is too large. The shrinkage pa
 
 - Set the seed and train a boosting classification with ``gbm`` using 10-fold cross-validation (``cv.folds=10``) on the training data with ``n.trees = 5000``, ``shrinkage = 0.001``, and ``interaction.depth =1``. Plot the cross-validation errors as a function of the boosting iteration and calculate the test MSE.
 
-```{r}
+```{r, eval = TRUE}
 set.seed(301)
-heart_boost = gbm(AHD ~ ., data = heart[train, ], distribution = "bernoulli", n.trees = 5000, interaction.depth = 1, shrinkage = 0.001, cv.folds = 10, class.stratify.cv = TRUE)
+heart_boost_1 <- gbm(
+  AHD ~ ., 
+  data = heart_train_numeric, 
+  distribution = "bernoulli",  
+  n.trees = 5000,  
+  interaction.depth = 1,  
+  shrinkage = 0.001,  
+  cv.folds = 10,  
+  class.stratify.cv = TRUE,  
+  n.cores = NULL,  
+  verbose = FALSE
+)
 
-summary(heart_boost)
+gbm.perf(heart_boost_1, method = "cv")
 
-yhat_boost<-predict() #predict on test
+summary(heart_boost_1)
+best_iter_1 <- gbm.perf(heart_boost_1, method = "cv", plot.it = FALSE)
+yhat_boost_1 <- predict(heart_boost_1, heart_test, n.trees = best_iter_1, type = "response")
+
+yhat_boost_class_1 <- ifelse(yhat_boost_1 > 0.5, 1, 0)
+
+mse_1 <- mean((yhat_boost_class_1 - heart_test$AHD)^2)
+mse_1
 
 
-#calculate MSE
+
 
 ```
 
 - Repeat the above using the same seed and ``n.trees=5000`` with the following 3 additional combination of parameters: a) ``shrinkage = 0.001``, ``interaction.depth = 2``; b) ``shrinkage = 0.01``, ``interaction.depth = 1``; c) ``shrinkage = 0.01``, ``interaction.depth = 2``.
 
-```{r}
+```{r, eval = TRUE}
 set.seed(301)
-heart_boost = gbm()
+heart_boost_2 <- gbm(AHD ~ ., 
+                     data = heart_train_numeric, distribution = "bernoulli", 
+                      n.trees = 5000, interaction.depth = 2, 
+                     shrinkage = 0.001, 
+                      cv.folds = 10, 
+                     class.stratify.cv = TRUE, verbose = FALSE)
 
+set.seed(301)
+heart_boost_3 <- gbm(AHD ~ ., data = heart_train_numeric, distribution = "bernoulli", n.trees = 5000, interaction.depth = 1, shrinkage = 0.01, 
+                      cv.folds = 10, class.stratify.cv = TRUE, 
+                     verbose = FALSE)
+
+set.seed(301)
+heart_boost_4 <- gbm(AHD ~ ., data = heart_train_numeric, distribution = "bernoulli", n.trees = 5000, interaction.depth = 2, shrinkage = 0.01, 
+                      cv.folds = 10, class.stratify.cv = TRUE,
+                      verbose = FALSE)
+
+
+# Function to compute MSE
+compute_mse <- function(model, test_data) {
+  best_iter <- gbm.perf(model, method = "cv", plot.it = FALSE)
+  preds <- predict(model, test_data, n.trees = best_iter, type = "response")
+  preds_class <- ifelse(preds > 0.5, 1, 0)
+  mean((preds_class - test_data$AHD)^2)
+}
+
+# Compute MSE for all models
+mse_2 <- compute_mse(heart_boost_2, heart_test)
+mse_3 <- compute_mse(heart_boost_3, heart_test)
+mse_4 <- compute_mse(heart_boost_4, heart_test)
+
+# Compare results
+mse_results <- data.frame(
+  Model = c("Shrinkage=0.001, Depth=1", "Shrinkage=0.001, Depth=2", 
+            "Shrinkage=0.01, Depth=1", "Shrinkage=0.01, Depth=2"),
+  MSE = c(mse_1, mse_2, mse_3, mse_4)
+)
+
+print(mse_results)
 
 ```
 
@@ -197,26 +341,67 @@ Tuning parameters
 - min_child_weight: controls the minimum number of samples in a leaf node before further splitting
 - colsample_bytree: controls the fraction of features (variables) used to build each tree. Default is 1 which is all features
 
-```{r}
+```{r, eval = TRUE}
 
-train_control = trainControl(method = "cv", number = 10, search ="grid")
 
-tune_grid<-  expand.grid(max_depth = c(1, 3, 5, 7), 
-                        nrounds = (1:10)*50, 
-                        eta = c(0.01,0.1,0.3), 
-                        gamma = 0, 
-                        subsample = 1,
-                        min_child_weight = 1,
-                        colsample_bytree = 0.6 
-                        )
+library(caret)
+dummies <- dummyVars(AHD ~ ., data = heart_train)  
+heart_train_transformed <- predict(dummies, newdata = heart_train)  
 
-heart_xgb<-caret::train(, method="xgbTree")
+heart_train_transformed <- as.data.frame(heart_train_transformed)
 
-varimp <- varImp()
+heart_train_transformed$AHD <- heart_train$AHD
+train_matrix <- as.matrix(heart_train_transformed %>% select(-AHD))  
+train_labels <- as.factor(heart_train_transformed$AHD)  
+
+train_control <- trainControl(method = "cv", number = 10, search = "grid")
+heart_test <- heart_test %>%
+  mutate(
+    ChestPain = as.factor(ChestPain),
+    Thal = as.factor(Thal)
+  )
+
+heart_test_transformed <- predict(dummies, newdata = heart_test)  
+
+heart_test_transformed <- as.data.frame(heart_test_transformed)
+
+heart_test_transformed$AHD <- heart_test$AHD
+test_matrix <- as.matrix(heart_test_transformed %>% select(-AHD))  
+test_labels <- as.factor(heart_test_transformed$AHD)  
+
+heart_train <- heart_train %>%
+  mutate(
+    ChestPain = as.factor(ChestPain),
+    Thal = as.factor(Thal)
+  )
+tune_grid <- expand.grid(
+  max_depth = c(1, 3, 5, 7),       
+  nrounds = (1:10) * 50,          
+  eta = c(0.01, 0.1, 0.3),        
+  gamma = 0,                      
+  subsample = 1,                  
+  min_child_weight = 1,           
+  colsample_bytree = 0.6          
+)
+
+heart_xgb <- caret::train(
+  x = train_matrix, 
+  y = train_labels, 
+  method = "xgbTree",
+  trControl = train_control, 
+  tuneGrid = tune_grid, 
+  metric = "Accuracy"  # For classification
+)
+
+print(heart_xgb$bestTune)
+varimp <- varImp(heart_xgb)
 plot(varimp)
 
-```
+yhat_xgb <- predict(heart_xgb, newdata = test_matrix)
 
-- Compare the the performance of the different models and summarize
+confusionMatrix(yhat_xgb, test_labels)
+
+
+```
 
 

@@ -1,0 +1,122 @@
+---
+title: "JSC370 Final Project"
+author: "Your Name"
+output: 
+    html_document:
+        toc: TRUE
+        toc_float: TRUE
+---
+
+<br>
+
+This is my JSC370 Final Project website. I will showcase a few interactive visuals here.
+
+<br>
+
+```{r setup, message=FALSE, echo=FALSE, warning=FALSE}
+
+library(data.table)
+library(tidyverse)
+library(dplyr)
+library(plotly)
+library(DT)
+library(knitr)
+library(widgetframe)
+
+# Initialize code chunk options
+opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  eval=TRUE,
+  echo = TRUE,
+  cache = FALSE,
+  fig.width = 7, 
+  fig.align = 'center',
+  fig.asp = 0.618,
+  out.width = "700px",
+  class.source = "code-r")
+```
+
+```{css, echo = FALSE}
+.code-r { /* Code block */
+  font-size: 15px;
+}
+
+.code-r-small { /* Code block */
+  font-size: 10px;
+}
+```
+
+<br>
+
+## First step
+
+First I will source any necessary code, e.g. `process_starbucks_data.R`:
+
+```{r load-data}
+source("process_starbucks_data.R")
+```
+
+<br>
+
+## Second step
+
+Then I will add some code to create the **plotly** figures
+
+Note: You need to name each code chunk, like this one: `plot1`
+
+```{r plot1, class.source="code-r-small", echo=FALSE}
+
+p1<-ggplot(sb_locs_state,  aes(x=population, y=n_stores, color=state)) +
+    geom_point(alpha = 0.8) +
+    theme_bw()
+
+ggplotly(p1)
+```
+
+<br>
+
+## Third step {.tabset}
+
+Create tabs to display each figure
+
+### Histogram of Calories
+
+```{r p1, echo=FALSE}
+p2<-ggplot(sb_nutr, aes(x=Calories, fill=Category )) + 
+  geom_histogram(alpha = 0.5)+
+  theme_bw()
+
+ggplotly(p2)
+```
+
+### Boxplot of Nutrition
+
+```{r p2, echo=FALSE}
+sb_nutr_long <- sb_nutr |>
+  unnest_tokens(word, Item, token = "words") |>
+  filter(word %in% topwords$word) |>
+  pivot_longer(cols = c(Calories, `Fat (g)`, `Carb. (g)`, `Fiber (g)`, `Protein (g)`), 
+               names_to = "Nutrient", values_to = "Value")
+plot_ly(data = sb_nutr_long, 
+        x = ~word, 
+        y = ~Value, 
+        color = ~Nutrient, 
+        type = "box") |>
+  layout(
+    title = "Nutritional Values of Starbucks Items by Top 10 Words",
+    xaxis = list(title = "Item Word"),
+    yaxis = list(title = "Nutritional Value"),
+    boxmode = "group"
+  )
+
+```
+
+## {-}
+
+<br>
+
+Done!
+
+<br>
+<br>
